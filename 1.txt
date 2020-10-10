@@ -1,0 +1,41 @@
+jdbc.properties+JdbcConfig 可以实现Java代码方式配置四大参数
+
+将配置文件中的配置项读取到一个对象中
+jdbcConfigToapplication+JdbcPropertied+application.properties
+
+第三种更优雅的方式
+JdbcConfigThird
+
+yml配置文件的特征：
+1.树状层级结构展示配置项
+2.配置项之间如果有关系的话需要分行空两格
+3.配置项如果有值的话，那么需要在：之后空一格再写配置项值
+多个yml配置文件在springBoot中是被允许的 ，这些配置文件的名称必须为application-***。yml，并且这些配置文件必须要在application.tml配置文件中激活之后才可以使用
+如果properties和yml配置文件同时存在springBoot项目中，那么这两类配置文件都有效，在两个配置文件中如果存在同名的配置项的话会以properties文件的为主
+application.yml+JdbcConfigThrid
+
+lombok注解实现pojo类的简化
+
+整合springMVC
+application.yml
+#tomcat端口
+server:
+  port: 8080
+#日志记录级别
+logging:
+  level:
+    com.liysh: debug
+    org.springframework: info
+
+处理静态资源
+放到static目录下
+直接访问这个地址就可以了 http://localhost:8080/test.js
+
+配置拦截器
+interceptor.MyInterceptor+java创建拦截器+config.MvcConfig.java注册拦截器
+2020-09-24 17:44:07.190 DEBUG 7304 --- [nio-8080-exec-1] com.liysh.interceptor.MyInterceptor      : 这是MyInterceptor的preHandle方法。
+2020-09-24 17:44:07.195 DEBUG 7304 --- [nio-8080-exec-1] com.liysh.interceptor.MyInterceptor      : 这是MyInterceptor的postHandle方法。
+2020-09-24 17:44:07.195 DEBUG 7304 --- [nio-8080-exec-1] com.liysh.interceptor.MyInterceptor      : 这是MyInterceptor的afterCompletion方法。
+
+
+整合jdbc和事务
